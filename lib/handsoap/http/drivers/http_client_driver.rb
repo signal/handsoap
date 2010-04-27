@@ -23,7 +23,7 @@ module Handsoap
             arr + v.map {|x| [k,x] }
           end
           response = http_client.request(request.http_method, request.url, nil, request.body, headers)
-          response_headers = response.header.all.inject({}) do |h, (k, v)|
+          response_headers = response.header.get.inject({}) do |h, (k, v)|
             k.downcase!
             if h[k].nil?
               h[k] = [v]
