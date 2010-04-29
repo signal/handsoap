@@ -35,6 +35,7 @@ module Handsoap
           http_client.read_timeout = Handsoap.timeout
           
           http_client.use_ssl = true if url.scheme == 'https'
+          http_client.verify_mode = OpenSSL::SSL::VERIFY_NONE
           
           if request.username && request.password
             # TODO: http://codesnippets.joyent.com/posts/show/1075
